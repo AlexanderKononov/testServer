@@ -1,4 +1,5 @@
 #!/bin/bash
+mkdir /home/box/log/
 mkdir /home/box/web/
 cp -r ./* /home/box/web/
 
