@@ -1,7 +1,6 @@
 #!/bin/bash
 mkdir /home/box/web/
-mkdir /home/box/web/etc/
-cp ./* /home/box/web/etc/
+cp ./* /home/box/web/
 
 sudo ﻿ln -s /home/box/web/etc/nginx.conf  /etc/nginx/sites-enabled/test.conf
 sudo /etc/init.d/nginx restart
