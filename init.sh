@@ -10,5 +10,5 @@ sudo ln -sf /home/box/web/etc/gunicorn.conf /etc/gunicorn.d/test
 cd /home/box/web/
 #sudo gunicorn --bind='0.0.0.0:8080' hello.py:hello_app
 #sudo gunicorn -c /etc/gunicorn.d/hello.conf.py /home/box/web/hello.py:hello_app
-sudo /etc/init.d/gunicorn hello.py:hello_app
+sudo /etc/init.d/gunicorn restart hello.py:hello_app
 #sudo /etc/init.d/mysql start
