@@ -1,5 +1,7 @@
 def hello_app(environ, start_response):
-    body = [bytes(i + '\n', 'ascii') for i in environ['QUERY_STRING'].split('&')]
+    body=environ['QUERY_STRING'].replace('?','')
+    body=body.split('&')
+    body = [bytes(i + '\n') for i in body]
     status = '200 OK'
     response_headers = [
         ('Content-type', 'text/plain')
