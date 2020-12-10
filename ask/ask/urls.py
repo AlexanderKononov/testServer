@@ -19,7 +19,7 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^$', include('qa.urls')),
     url(r'^login/', include('qa.urls')),
-    url(% r'^question/', include('qa.urls')),
+    url(r'^question/', include('qa.urls')),
     url(r'^ask/', include('qa.urls')),
     url(r'^popular/', include('qa.urls')),
     url(r'^new/', include('qa.urls')),
