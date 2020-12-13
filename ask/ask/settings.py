@@ -77,6 +77,7 @@ DATABASES = {
     'default': {
     	'ENGINE': 'django.db.backends.mysql',
     	'NAME': 'qa_db',
+    	'USER': 'box',
     }
 }
 

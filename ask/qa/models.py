@@ -7,7 +7,7 @@ from django.db import models
 
 from django.contrib.auth.models import User
 
-class Question (models.Model){
+class Question (models.Model):
 	title = models.CharField()
 	text = models.TextField()
 	added_at = models.DateTimeField(blank = True, auto_now_add=True)
@@ -22,16 +22,14 @@ class Question (models.Model){
 	class Meta:
 		db_table = 'qa_questions'
 		ordering = ['-creation_data']
-}
 
-class QuestionManager (models.Manager) {
+class QuestionManager (models.Manager):
 	def new (self):
 		return self.order_by('-added_at')
 	def popular(self):
     		return self.order_by('-rating')
-}
 
-class Answer (models.Model){
+class Answer (models.Model):
 	text = models.TextField()
 	added_at = models.DateTimeField(blank = True, auto_now_add=True)
 	question = models.ForeignKey('Question')
@@ -39,6 +37,5 @@ class Answer (models.Model){
 	class Meta:
 		db_table = 'qa_answers'
 		ordering = ['-creation_data']
-}
 
 

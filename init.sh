@@ -13,9 +13,9 @@ mysql -uroot -e "grant all privileges on qa_db.* to 'box'@'localhost' with grant
 
 #sudo ln -sf /home/box/web/etc/gunicorn.conf /etc/gunicorn.d/test
 cd /home/box/web/ask/
-python ./manage.py syncdb
-#python ./manage.py makemigrations
-#python ./manage.py migrate
+#python ./manage.py syncdb
+python ./manage.py makemigrations
+python ./manage.py migrate
 gunicorn -w 2 -c /home/box/web/etc/ask_conf.py ask.wsgi:application
 
 
