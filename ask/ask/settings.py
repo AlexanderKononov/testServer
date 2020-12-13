@@ -74,7 +74,7 @@ WSGI_APPLICATION = 'ask.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 DATABASES = {
-    'qa_db': {
+    'default': {
     	'ENGINE': 'django.db.backends.mysql',
     	'NAME': 'qa_db',
     }
