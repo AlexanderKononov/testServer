@@ -8,7 +8,8 @@ sudo ln -sf /home/box/web/etc/test.conf /etc/nginx/sites-enabled/default
 sudo /etc/init.d/nginx restart
 
 sudo /etc/init.d/mysql start
-mysql -u root -e "CREATE DATABASE qa_db"
+mysql -uroot -e "create database qa_db;"
+mysql -uroot -e "grant all privileges on qa_db.* to 'box'@'localhost' with grant option;"
 
 #sudo ln -sf /home/box/web/etc/gunicorn.conf /etc/gunicorn.d/test
 cd /home/box/web/ask/
