@@ -8,13 +8,13 @@ sudo ln -sf /home/box/web/etc/test.conf /etc/nginx/sites-enabled/default
 sudo /etc/init.d/nginx restart
 
 sudo /etc/init.d/mysql start
-mysql -uroot -e "CREATE DATABASE qa_db"
+mysql -u root -e "CREATE DATABASE qa_db"
 
 #sudo ln -sf /home/box/web/etc/gunicorn.conf /etc/gunicorn.d/test
 cd /home/box/web/ask/
 #python ./manage.py syncdb
-python ./manager.py makemigrations
-python ./manager.py migrate
+python ./manage.py makemigrations
+python ./manage.py migrate
 gunicorn -w 2 -c /home/box/web/etc/ask_conf.py ask.wsgi:application
 
 
