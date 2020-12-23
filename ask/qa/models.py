@@ -8,8 +8,8 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class Question (models.Model):
-	objects = QuestionManager()
-	title = models.CharField()
+	#objects = QuestionManager()
+	title = models.CharField(max_length=200)
 	text = models.TextField()
 	added_at = models.DateTimeField(blank = True, auto_now_add=True)
 	rating = models.IntegerField(default=0)
@@ -22,7 +22,7 @@ class Question (models.Model):
 		return '/question/%d/' % self.pk
 	class Meta:
 		db_table = 'qa_questions'
-		ordering = ['-creation_data']
+		#ordering = ['-creation_data']
 
 class QuestionManager (models.Manager):
 	def new (self):
