@@ -7,8 +7,14 @@ from django.db import models
 
 from django.contrib.auth.models import User
 
+class QuestionManager(models.Manager):
+	def new (self):
+		return self.order_by('-added_at')
+	def popular(self):
+    		return self.order_by('-rating')
+
 class Question (models.Model):
-	#objects = QuestionManager()
+	objects = QuestionManager()
 	title = models.CharField(max_length=200)
 	text = models.TextField()
 	added_at = models.DateTimeField(blank = True, auto_now_add=True)
@@ -24,11 +30,7 @@ class Question (models.Model):
 		db_table = 'qa_questions'
 		#ordering = ['-creation_data']
 
-class QuestionManager (models.Manager):
-	def new (self):
-		return self.order_by('-added_at')
-	def popular(self):
-    		return self.order_by('-rating')
+
 
 class Answer (models.Model):
 	text = models.TextField()
@@ -37,6 +39,6 @@ class Answer (models.Model):
 	author = models.ForeignKey(User)
 	class Meta:
 		db_table = 'qa_answers'
-		ordering = ['-creation_data']
+		#ordering = ['-creation_data']
 
 
